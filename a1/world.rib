@@ -1,0 +1,13 @@
+Projection "perspective" "fov" 45 
+Display "prman.tif" "tiff" "rgba"
+Format 1280 720 1
+
+
+
+FrameBegin 1
+Translate 0 0 30
+
+WorldBegin
+		ReadArchive "bb8.rib"
+WorldEnd
+FrameEnd
