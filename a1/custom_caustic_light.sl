@@ -1,8 +1,7 @@
 light
-shadowlight
+custom_caustic_light
 (
-    float intensity = 1,
-          samples = 256;
+    float intensity = 1, samples = 256;
     color lightcolor = 1;
     point from = point "shader" (0,0,0);
 )

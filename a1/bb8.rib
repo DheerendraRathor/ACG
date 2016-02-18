@@ -43,12 +43,14 @@ TransformEnd
 
 # Eye
 TransformBegin
+	Color [0.3 0.1 0.1]
 	Translate 0 6.35 -2.6
 	Sphere 0.6 -0.6 0.6 360
 TransformEnd
 
 # Knob
 TransformBegin
+	Color [0.1 0.1 0.1]
 	Translate 1.2 5.8 -2.8
 	Sphere 0.4 -0.4 0.4 360
 TransformEnd

@@ -1,5 +1,8 @@
 
-all: texture shaders world
+all: clean texture shaders world
+
+area_light_source.rib:
+	python create_arealight.py > area_light_source.rib
 
 texture:
 	txmake textures/roof.tif textures/roof.tex
@@ -15,14 +18,16 @@ shaders:
 	shader wood.sl
 	shader metal.sl
 	shader transparent.sl
-	shader shadowlight.sl
+	shader custom_caustic_light.sl
 
 world: caustics.cpm
 	prman world.rib
+	cp prman.tif world.tif
 
-caustics.cpm:
+caustics.cpm: area_light_source.rib
 	prman caustics.rib
 
 clean:
 	rm -f *.slo
 	rm -f *.cpm
+	rm -f area_light_source.rib
