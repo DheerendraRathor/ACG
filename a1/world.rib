@@ -2,12 +2,85 @@ Projection "perspective" "fov" 45
 Display "prman.tif" "tiff" "rgba"
 Format 1280 720 1
 
-
-
 FrameBegin 1
 Translate 0 0 30
 
 WorldBegin
+	
+    LightSource "spotlight" 1 "from" [-4 7 -7] "to" [0 0 0] "intensity" 100 "coneangle" 0.2
+    LightSource "causticlight" 2
+	
+	Attribute "visibility" "int diffuse" 1      # make objects visible to rays
+    Attribute "visibility" "int specular" 1     # make objects visible to rays
+    Attribute "visibility" "int transmission" 1 # for shadows
+
+    Attribute "photon" "causticmap" "caustics.cpm"
+    Attribute "photon" "estimator" 200
+
+    AttributeBegin
+    	Surface "metal"
+		Color [1 1 1]
+      Translate +7 -7 5
+      Sphere 3 -3 3 360
+    AttributeEnd
+
+
+    AttributeBegin
+    	Surface "transparent"
+		Color [1 1 1]
+		Translate -3 -7 9
+        Sphere 3 -3 3 360
+    AttributeEnd
+
+    # top
+    AttributeBegin
+		Color [0.5 0.5 0.5]
+      	Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0]
+    AttributeEnd
+
+    # bac
+    AttributeBegin
+    	Surface "fabric"
+		Color [0.7 0.1 0.1]
+        Polygon "P" [-30 -20 30   -30 20 30   30 20 30   30 -20 30] "st" [0 0 0 1 1 1 1 0] 
+    AttributeEnd
+
+    # bottom
+    AttributeBegin
+    	Surface "floor"
+		Color [0.5 0.5 0.5]
+        Polygon "P" [-30 -10 -30   -30 -10 30   30 -10 30   30 -10 -30] "st" [0 0 0 1 1 1 1 0] 
+    AttributeEnd
+
+    # left
+    AttributeBegin
+    	Surface "wood"
+		Color [0.6 0.4 0.4]
+        Polygon "P" [-30 20 -30   -30 20 30   -30 -20 30   -30 -20 -30] "st" [0 0 0 1 1 1 1 0] 
+    AttributeEnd
+
+    # right
+    AttributeBegin
+    	Surface "wood"
+		Color [0.5 0.5 0.5]
+        Polygon "P" [30 -20 -30   30 -20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0] 
+    AttributeEnd
+    
+
+	TransformBegin
+		Scale 0.35 0.35 0.35
+		Translate 0 -22 0
+		Rotate -25 0 1 0
+		Rotate -10 0 0 1
 		ReadArchive "bb8.rib"
+	TransformEnd
+
+	TransformBegin
+		Translate 10 0 0  
+		Scale 0.7 0.7 0.7
+		Rotate 25 0 1 0
+		ReadArchive "c3po.rib"
+	TransformEnd
+
 WorldEnd
 FrameEnd

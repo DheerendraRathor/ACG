@@ -1,0 +1,60 @@
+FrameBegin 2
+  Hider "photon" "emit" 1000000
+  
+  Translate 0 0 30
+  Attribute "trace" "maxspeculardepth" 5
+  
+  WorldBegin
+    Attribute "photon" "causticmap" "caustics.cpm"
+    ReadArchive "arealight.rib"
+
+    AttributeBegin
+      Attribute "photon" "shadingmodel" "chrome"
+      Translate +7 -7 5
+      Sphere 3 -3 3 360
+    AttributeEnd
+
+
+    AttributeBegin
+      Attribute "photon" "shadingmodel" "water"
+      Translate -3 -7 9
+      Sphere 3 -3 3 360
+    AttributeEnd
+
+    # top
+    AttributeBegin
+        Attribute "photon" "shadingmodel" "glass"
+        Color [1 1 1]
+      Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30]
+    AttributeEnd
+
+    # bac
+    AttributeBegin
+        Attribute "photon" "shadingmodel" "matte"
+        Color [1 1 1]
+        Polygon "P" [-30 20 30   -30 -20 30   30 -20 30   30 20 30]
+    AttributeEnd
+
+    # bottom
+    AttributeBegin
+        Attribute "photon" "shadingmodel" "matte"
+        Color [1 1 1]
+        Polygon "P" [-30 -10 -30   -30 -10 30   30 -10 30   30 -10 -30]
+    AttributeEnd
+
+    # left
+    AttributeBegin
+        Attribute "photon" "shadingmodel" "matte"
+        Color [1 1 1]
+        Polygon "P" [-30 20 -30   -30 20 30   -30 -20 30   -30 -20 -30]
+    AttributeEnd
+
+    # right
+    AttributeBegin
+        Attribute "photon" "shadingmodel" "matte"
+        Color [1 1 1]
+        Polygon "P" [30 20 -30   30 20 30   30 -20 30   30 -20 -30]
+    AttributeEnd
+
+WorldEnd
+FrameEnd

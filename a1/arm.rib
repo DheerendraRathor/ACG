@@ -1,0 +1,40 @@
+# Upper
+TransformBegin
+	Rotate 90 1 0 0
+	Translate 0 0 -1
+	Disk -1.5 0.6 360
+TransformEnd
+
+# Upper
+TransformBegin
+	Rotate 90 1 0 0
+	Translate 0 0 -1
+	Cylinder 0.6 -1.5 1.5 360
+TransformEnd
+
+# Knee
+TransformBegin
+	Rotate 90 0 1 0
+	Translate 0 -0.75 0
+	Disk 0.61 0.45 360
+	Disk -0.61 0.45 360
+	Cylinder 0.45 -0.61 0.61 360
+TransformEnd
+
+TransformBegin
+	Rotate 35 1 0 0
+	Translate 0 0.1 0.21
+	
+	TransformBegin
+		Rotate 90 1 0 0
+		Translate 0 0 2.5
+		Cylinder 0.55 -1.5 1.5 360
+	TransformEnd
+
+	AttributeBegin
+		Color [1 0 0]
+		Translate 0 -4.25 0.0
+		Scale 1 1 0.5
+		ReadArchive "unitcube.rib"
+	AttributeEnd
+TransformEnd

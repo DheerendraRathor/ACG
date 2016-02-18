@@ -14,11 +14,11 @@ TransformBegin
 TransformEnd
 
 # Body
-AttributeBegin
+TransformBegin
 	TransformBegin
 		Sphere 5 -5 5 360
 	TransformEnd
-AttributeEnd
+TransformEnd
 
 # Antena 2
 TransformBegin

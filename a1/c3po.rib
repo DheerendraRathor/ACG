@@ -1,0 +1,57 @@
+## CEPO
+
+TransformBegin
+	Rotate -30 1 0 0
+	# Body
+	TransformBegin
+		Scale 4 5 2.4
+		Rotate 90 1 0 0
+		Disk 0.5 0.5 360
+		Disk -0.5 0.5 360
+		Cylinder 0.5 -0.5 0.5 360
+	TransformEnd
+
+	# Left Arm
+	TransformBegin
+		Translate 2.7 0 0.5
+		Rotate 20 0 1 0
+		Rotate -30 1 0 0
+		ReadArchive "arm.rib"
+	TransformEnd
+
+	# Right Arm
+	TransformBegin
+		Translate -2.1 0 0
+		Rotate 30 1 1 0
+		Rotate 20 0 1 0
+		ReadArchive "arm.rib"
+	TransformEnd
+
+	# Head
+	TransformBegin
+		Translate 0 3 0
+		ReadArchive "head.rib"
+	TransformEnd
+TransformEnd
+
+# Underwear
+TransformBegin
+	Rotate 90 -1 0 0
+	Translate 0 0 -3.6
+	Scale 1 0.6 1
+	Paraboloid 2 0 1.5 360
+TransformEnd
+
+# Left Leg
+TransformBegin
+	Translate 1.25 0 0
+	ReadArchive "leg.rib"
+TransformEnd
+
+# Right Leg
+TransformBegin
+	Translate -1.25 0 0
+	ReadArchive "leg.rib"
+TransformEnd
+
+
