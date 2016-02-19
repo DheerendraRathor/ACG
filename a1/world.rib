@@ -5,11 +5,17 @@ Format 1280 720 1
 FrameBegin 1
 Translate 0 0 30
 
+#Option "limits" "color othreshold" [9 9 9]
+#Option "limits" "float deepshadowerror" [0.01]
+#Display "null" "null" "z"
+#Display "+Shadow.tdsm" "deepshad" "areashadow"
+#Attribute "cull" "int backfacing" [0] "int hidden" [0]
+
 WorldBegin
-	LightSource "ambientlight" 1 "intensity" 0.01
-    LightSource "causticlight" 2
-	
-	Attribute "visibility" "int diffuse" 1      # make objects visible to rays
+    ReadArchive "area_light_source.rib"
+    LightSource "causticlight" 6
+    
+    Attribute "visibility" "int diffuse" 1      # make objects visible to rays
     Attribute "visibility" "int specular" 1     # make objects visible to rays
     Attribute "visibility" "int transmission" 1 # for shadows
 
@@ -17,70 +23,73 @@ WorldBegin
     Attribute "photon" "estimator" 200
 
     AttributeBegin
-    	Surface "metal"
-		Color [1 1 1]
-      Translate +7 -7 5
-      Sphere 3 -3 3 360
+        Surface "metal"
+        Color [1 1 1]
+        Translate +7 -7 5
+        Sphere 3 -3 3 360
     AttributeEnd
 
 
     AttributeBegin
-    	Surface "transparent"
-		Color [1 1 1]
-		Translate -3 -7 9
+        Surface "transparent"
+        Color [1 1 1]
+        Translate -3 -7 9
         Sphere 3 -3 3 360
     AttributeEnd
 
     # top
     AttributeBegin
-    	Surface "roof"
-		Color [1 1 1]
-      	Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0]
+        Surface "matte"
+        Color [1 1 1]
+        Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0]
     AttributeEnd
 
     # bac
     AttributeBegin
-    	Surface "fabric"
-		Color [1 1 1]
+        Surface "fabric"
+        Color [1 1 1]
         Polygon "P" [-30 -20 30   -30 20 30   30 20 30   30 -20 30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # bottom
     AttributeBegin
-    	Surface "floor"
-		Color [1 1 1]
+        Surface "floor"
+        Color [1 1 1]
         Polygon "P" [-30 -10 -30   -30 -10 30   30 -10 30   30 -10 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # left
     AttributeBegin
-    	Surface "wood"
-		Color [1 1 1]
+        Surface "wood"
+        Color [1 1 1]
         Polygon "P" [-30 20 -30   -30 20 30   -30 -20 30   -30 -20 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # right
     AttributeBegin
-    	Surface "wood"
-		Color [1 1 1]
+        Surface "wood"
+        Color [1 1 1]
         Polygon "P" [30 -20 -30   30 -20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
     
 
-	TransformBegin
-		Scale 0.35 0.35 0.35
-		Translate 0 -22 0
-		Rotate -25 0 1 0
-		Rotate -10 0 0 1
-		ReadArchive "bb8.rib"
-	TransformEnd
+    AttributeBegin
+        Color [1 1 1]
+        Scale 0.35 0.35 0.35
+        Translate 0 -23.6 0
+        Rotate -25 0 1 0
+        Rotate -10 0 0 1
+        ReadArchive "bb8.rib"
+    AttributeEnd
 
-	TransformBegin
-		Translate 10 0 0  
-		Scale 0.7 0.7 0.7
-		Rotate 25 0 1 0
-		ReadArchive "c3po.rib"
-	TransformEnd
+    AttributeBegin
+        Surface "c3po"
+        Color [1 0.843 0]
+        Translate 10 -2.3 0
+        Scale 0.7 0.7 0.7
+        Rotate 25 0 1 0
+        ReadArchive "c3po.rib"
+    AttributeEnd
 
 WorldEnd
 FrameEnd

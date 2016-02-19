@@ -1,58 +1,70 @@
 ## CEPO
 
-TransformBegin
+AttributeBegin
 	Translate 0 0 -1
 	Rotate -30 1 0 0
 	# Body
-	TransformBegin
+	AttributeBegin
+		Scale 4 5 2.4
+		Rotate 90 1 0 0
+		Cylinder 0.5 -0.5 0.5 360
+	AttributeEnd
+
+	AttributeBegin
 		Scale 4 5 2.4
 		Rotate 90 1 0 0
 		Disk 0.5 0.5 360
 		Disk -0.5 0.5 360
-		Cylinder 0.5 -0.5 0.5 360
-	TransformEnd
+	AttributeEnd
+
+	AttributeBegin
+    	Surface "matte"
+		Translate 0 0 -2.2
+		Disk 1 1 360
+	AttributeEnd
 
 	# Left Arm
-	TransformBegin
+	AttributeBegin
+		Color [1 0 0]
 		Translate 2.7 0 0.5
 		Rotate 20 0 1 0
 		Rotate -30 1 0 0
 		ReadArchive "arm.rib"
-	TransformEnd
+	AttributeEnd
 
 	# Right Arm
-	TransformBegin
+	AttributeBegin
 		Translate -2.1 0 0
 		Rotate 30 1 1 0
 		Rotate 20 0 1 0
 		ReadArchive "arm.rib"
-	TransformEnd
+	AttributeEnd
 
 	# Head
-	TransformBegin
+	AttributeBegin
 		Translate 0 3 0
 		ReadArchive "head.rib"
-	TransformEnd
-TransformEnd
+	AttributeEnd
+AttributeEnd
 
 # Underwear
-TransformBegin
+AttributeBegin
 	Rotate 90 -1 0 0
 	Translate 0 0 -3.6
 	Scale 1 0.6 1
 	Paraboloid 2 0 1.5 360
-TransformEnd
+AttributeEnd
 
 # Left Leg
-TransformBegin
+AttributeBegin
 	Translate 1.25 0 0
 	ReadArchive "leg.rib"
-TransformEnd
+AttributeEnd
 
 # Right Leg
-TransformBegin
+AttributeBegin
 	Translate -1.25 0 0
 	ReadArchive "leg.rib"
-TransformEnd
+AttributeEnd
 
 

@@ -1,56 +1,64 @@
 ## BB8 file
 # Head
-TransformBegin
+AttributeBegin
+    Surface "bb8_body"
 	Translate 0 5 0
 	Rotate 90 1 0 0
 	Sphere 3 -3 -0 360
-TransformEnd
+AttributeEnd
 
 # Neck
-TransformBegin
+AttributeBegin
+    Surface "bb8_body"
 	Translate 0 5 0
 	Rotate 90 1 0 0
 	Cone 1 -3 360
-TransformEnd
+AttributeEnd
 
 # Body
-TransformBegin
-	TransformBegin
-		Sphere 5 -5 5 360
-	TransformEnd
-TransformEnd
+AttributeBegin
+    Surface "metal"
+    Surface "bb8_body"
+    Sphere 5 -5 5 360
+AttributeEnd
 
 # Antena 2
-TransformBegin
+AttributeBegin
+    Surface "metal"
+	Color [0.1 0.1 0.1]
 	Translate 0 6 0.5
 	Rotate -90 1 0 0
 	Cylinder 0.1 0 3 360
-TransformEnd
+AttributeEnd
 
 # Antena 2
-TransformBegin
+AttributeBegin
+    Surface "metal"
+	Color [0.1 0.1 0.1]
 	Translate 0.5 6 0
 	Rotate -90 1 0 0
 	Cylinder 0.04 0 6 360
-TransformEnd
+AttributeEnd
 	
 # Antena Head 2
-TransformBegin
+AttributeBegin
+    Surface "metal"
+	Color [0.1 0.1 0.1]
 	Translate 0.5 12 0
 	Rotate -90 1 0 0
 	Cylinder 0.1 0 0.5 360
-TransformEnd
+AttributeEnd
 
 # Eye
-TransformBegin
+AttributeBegin
 	Color [0.3 0.1 0.1]
 	Translate 0 6.35 -2.6
 	Sphere 0.6 -0.6 0.6 360
-TransformEnd
+AttributeEnd
 
 # Knob
-TransformBegin
+AttributeBegin
 	Color [0.1 0.1 0.1]
 	Translate 1.2 5.8 -2.8
 	Sphere 0.4 -0.4 0.4 360
-TransformEnd
+AttributeEnd

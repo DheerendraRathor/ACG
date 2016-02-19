@@ -23,9 +23,9 @@ FrameBegin 2
 
     # top
     AttributeBegin
-        Attribute "photon" "shadingmodel" "glass"
-        Color [1 1 1]
-      Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30]
+        #Attribute "photon" "shadingmodel" "matte"
+        #Color [1 1 1]
+        #Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30]
     AttributeEnd
 
     # bac
@@ -57,13 +57,21 @@ FrameBegin 2
     AttributeEnd
 
   AttributeBegin
-      Attribute "photon" "shadingmodel" "chrome"
+      Attribute "photon" "shadingmodel" "matte"
       Scale 0.35 0.35 0.35
-      Translate 0 -22 0
+      Translate 0 -23.6 0
       Rotate -25 0 1 0
       Rotate -10 0 0 1
       ReadArchive "bb8.rib"
   AttributeEnd
+
+  TransformBegin
+    Attribute "photon" "shadingmodel" "matte"
+    Translate 10 -2.3 0
+    Scale 0.7 0.7 0.7
+    Rotate 25 0 1 0
+    ReadArchive "c3po.rib"
+  TransformEnd
 
 WorldEnd
 FrameEnd
