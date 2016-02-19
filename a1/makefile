@@ -1,5 +1,5 @@
 
-all: clean texture shaders world
+all: texture shaders world
 
 area_light_source.rib:
 	python create_arealight.py > area_light_source.rib
@@ -25,11 +25,11 @@ shaders:
 	shader custom_caustic_light.sl
 
 world: caustics.cpm
-	prman world.rib
+	prman -progress world.rib
 	cp prman.tif world.tif
 
 caustics.cpm: area_light_source.rib
-	prman caustics.rib
+	prman -progress caustics.rib
 
 clean:
 	rm -f textures/*.tex

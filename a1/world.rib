@@ -5,19 +5,35 @@ Format 1280 720 1
 FrameBegin 1
 Translate 0 0 30
 
-#Option "limits" "color othreshold" [9 9 9]
-#Option "limits" "float deepshadowerror" [0.01]
-#Display "null" "null" "z"
-#Display "+Shadow.tdsm" "deepshad" "areashadow"
-#Attribute "cull" "int backfacing" [0] "int hidden" [0]
+#Translate 10 0 25
+#Rotate -30 0 1 0
+
+#Translate -10 0 25
+#Rotate -10 1 0 0
+#Rotate 10 0 1 0
+
+#Translate -20 5 0
+#Rotate 90 0 1 0
+#Translate -25 0 15
+
+#Translate 20 5 0
+#Rotate -80 0 1 0
+#Translate 25 0 20
+
+#Translate 0 7 10
+#Rotate 45 0 1 0
+
+#Shutter 0 1
+#Camera "world" "float[10] shutteropening" [1 1 0.8 0.1 0.9 0.2 1 1 1 1]
+# DepthOfField 40 45 9
 
 WorldBegin
     ReadArchive "area_light_source.rib"
     LightSource "causticlight" 6
     
-    Attribute "visibility" "int diffuse" 1      # make objects visible to rays
-    Attribute "visibility" "int specular" 1     # make objects visible to rays
-    Attribute "visibility" "int transmission" 1 # for shadows
+    Attribute "visibility" "int diffuse" 1     
+    Attribute "visibility" "int specular" 1 
+    Attribute "visibility" "int transmission" 1
 
     Attribute "photon" "causticmap" "caustics.cpm"
     Attribute "photon" "estimator" 200
@@ -28,7 +44,6 @@ WorldBegin
         Translate +7 -7 5
         Sphere 3 -3 3 360
     AttributeEnd
-
 
     AttributeBegin
         Surface "transparent"
@@ -71,10 +86,14 @@ WorldBegin
         Color [1 1 1]
         Polygon "P" [30 -20 -30   30 -20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
-    
 
     AttributeBegin
         Color [1 1 1]
+        # MotionBegin [0 0.9 1]
+        #    Translate 0 0 2 
+        #    Translate 0 0 -2
+        #    Translate 0 0 -2
+        # MotionEnd
         Scale 0.35 0.35 0.35
         Translate 0 -23.6 0
         Rotate -25 0 1 0
