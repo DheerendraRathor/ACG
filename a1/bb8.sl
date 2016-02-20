@@ -1,32 +1,32 @@
 surface
 bb8
 (
-    float Ka=1,
-          Kd=3,
-          Kr=1,
-          Kt=0.0,
-          Kc=0.0,
-          roughness=1.0,
-          eta=1.5;
+    /* 
+    * Surface Properties 
+    * 
+    * Wp: Weight of phong
+    * WId: Weight of indirect diffuse
+    */
+    float Ka=1, Kd=3, Kc=0.0, Wp=0.75, WId=2;
+
     string tex="textures/bb8.tex";
 )
+
 {
-  normal Nn = normalize(N);
-  vector In = normalize(I);
+  normal uShN = normalize(N);
 
-  normal v = faceforward(Nn, In);
-  v = normalize(v);
-  color local_illumination = Ka * ambient() + Kd * diffuse(Nn);
-
-
-  Ci += Cs * 0.75 * local_illumination;
-  Ci += 2 * indirectdiffuse(P, Nn, 1000);
-  Ci += Kc * photonmap("caustics.cpm", P, N, "estimator", 400);
+  Ci += (
+          Cs * Wp * (Ka * ambient() + Kd * diffuse(uShN)) +
+          WId * indirectdiffuse(P, uShN, 1000) +
+          Kc * photonmap("caustics.cpm", P, N, "estimator", 400)
+        );
   
-  color t = texture(tex);
-  float r = Ci[0] * t[0];
-  float g = Ci[1] * t[1];
-  float b = Ci[2] * t[2];
-  Ci = (r,g,b);
+  color texture_color = texture(tex);
+
+  Ci = (
+          Ci[0] * texture_color[0],
+          Ci[1] * texture_color[1],
+          Ci[2] * texture_color[2]
+        );
   Oi = Os;
 }

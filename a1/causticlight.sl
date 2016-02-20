@@ -1,3 +1,7 @@
+/*
+	Source : Rendering Caustics from Pixar
+	https://renderman.pixar.com/view/Caustics
+*/
 light causticlight(
   color filter = color(1);
   output float __nonspecular = 1;)

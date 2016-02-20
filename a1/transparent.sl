@@ -1,17 +1,14 @@
 surface
 transparent
 (
-    float Ka=.1 ,
-          Ks=.1,
-          Kd=.1,
-          Kr=.1,
-          Kt=.9,
-          roughness=.1,
-          eta=0.85;
-    color specularcolor=1
+    /* Surface Properties */
+    float Ka=.1, Ks=.1, Kd=.1, Kr=.1, Kt=.9, roughness=.1, eta=0.85;
 )
 
 {
+  /* 
+  * Unit vector along shading normal and incident ray 
+  */
   normal uShN = normalize(N);
   vector uI = normalize(I);
 
