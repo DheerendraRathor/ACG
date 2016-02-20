@@ -6,29 +6,19 @@ c3po
           Kd=2.5,
           Kr=0.6,
           Kt=0,
-          roughness=0.6,
-          eta=1.33;
+          roughness=0.6;
     color specularcolor=1
 )
 {
-  normal Nn = normalize(N);
-  vector In = normalize(I);
 
-  uniform float d = 0;
-  rayinfo("depth", d);
+  // Get unit shading normal and incident ray
+  normal uShN = normalize(N);
+  vector uI = normalize(I);
 
-  normal v = faceforward(Nn, In);
-  v = normalize(v);
-  if (d < 5) {
-    if (Nn.In < 0) {
-      vector reflected_ray = reflect(In,Nn);
-      Ci += Cs * Kr * trace(P, reflected_ray);
-    }
-  }
-
-  color local_illumination = Ka * ambient() + Kd * diffuse(Nn) + Ks * specular(v, -In, roughness);
-
-  Ci += Cs * local_illumination;
+  Ci += (Cs * Kr * trace(P, vector reflect(uI, uShN))) +  // Reflected component
+        Cs * (Ka * ambient() +   // Ambient component
+        Kd * diffuse(uShN) +    // Diffuse component
+        Ks * specular(normalize(faceforward(uShN, uI, Ng)), -uI, roughness));    // Specular component
   Ci *= Os;
   Oi = Os;
 }

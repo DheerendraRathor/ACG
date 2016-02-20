@@ -1,14 +1,14 @@
 surface
-fabric
+bb8
 (
     float Ka=1,
           Kd=3,
-          Kr=0.1,
+          Kr=1,
           Kt=0.0,
           Kc=0.0,
           roughness=1.0,
           eta=1.5;
-    string tex="textures/velvet.tex";
+    string tex="textures/bb8.tex";
 )
 {
   normal Nn = normalize(N);
@@ -20,7 +20,7 @@ fabric
 
 
   Ci += Cs * 0.75 * local_illumination;
-  Ci += indirectdiffuse(P, Nn, 1000);
+  Ci += 2 * indirectdiffuse(P, Nn, 1000);
   Ci += Kc * photonmap("caustics.cpm", P, N, "estimator", 400);
   
   color t = texture(tex);

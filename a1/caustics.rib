@@ -14,7 +14,6 @@ FrameBegin 2
       Sphere 3 -3 3 360
     AttributeEnd
 
-
     AttributeBegin
       Attribute "photon" "shadingmodel" "water"
       Translate -3 -7 9
@@ -23,9 +22,9 @@ FrameBegin 2
 
     # top
     AttributeBegin
-        #Attribute "photon" "shadingmodel" "matte"
-        #Color [1 1 1]
-        #Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30]
+        Attribute "photon" "shadingmodel" "matte"
+        Color [1 1 1]
+        Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30]
     AttributeEnd
 
     # bac

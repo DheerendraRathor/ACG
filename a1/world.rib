@@ -23,8 +23,8 @@ Translate 0 0 30
 #Translate 0 7 10
 #Rotate 45 0 1 0
 
-#Shutter 0 1
-#Camera "world" "float[10] shutteropening" [1 1 0.8 0.1 0.9 0.2 1 1 1 1]
+# Shutter 0 1
+# Camera "world" "float[10] shutteropening" [1 1 0.8 0.1 0.9 0.2 1 1 1 1]
 # DepthOfField 40 45 9
 
 WorldBegin
@@ -54,35 +54,35 @@ WorldBegin
 
     # top
     AttributeBegin
-        Surface "matte"
+        Surface "wall" "tex" "textures/roof.tex"
         Color [1 1 1]
         Polygon "P" [-30 20 -30   -30 20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0]
     AttributeEnd
 
     # bac
     AttributeBegin
-        Surface "fabric"
+        Surface "wall" "tex" "textures/velvet.tex"
         Color [1 1 1]
         Polygon "P" [-30 -20 30   -30 20 30   30 20 30   30 -20 30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # bottom
     AttributeBegin
-        Surface "floor"
+        Surface "wall" "tex" "textures/floor.tex"
         Color [1 1 1]
         Polygon "P" [-30 -10 -30   -30 -10 30   30 -10 30   30 -10 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # left
     AttributeBegin
-        Surface "wood"
+        Surface "wall" "tex" "textures/wood.tex"
         Color [1 1 1]
         Polygon "P" [-30 20 -30   -30 20 30   -30 -20 30   -30 -20 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
 
     # right
     AttributeBegin
-        Surface "wood"
+        Surface "wall" "tex" "textures/grass.tex"
         Color [1 1 1]
         Polygon "P" [30 -20 -30   30 -20 30   30 20 30   30 20 -30] "st" [0 0 0 1 1 1 1 0] 
     AttributeEnd
